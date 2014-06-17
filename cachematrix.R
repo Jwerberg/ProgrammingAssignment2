@@ -1,15 +1,14 @@
-## Put comments here that give an overall description of what your
-## functions do
+## These functions create a CacheMatrix and function for solving (finding the inverse)
+## of a matrix and saving the solution to avoid extra calculations
 
-## Write a short comment describing this function
-
-## Testing commit from R Studio 
+## makeCacheMatrix creates a CacheMatrix - takes a matrix as an input
+## and has components get, set, setinverse and getinverse
 
 makeCacheMatrix <- function(x = matrix()) {
   i <- NULL
   set <- function(y) {
     x <<- y
-    I <<- NULL
+    i <<- NULL
   }
   get <- function() x
   setinverse <- function(inverse) i <<- inverse
@@ -21,7 +20,9 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## Write a short comment describing this function
+## cacheSolve returns the inverse of a CacheMatrix 
+## If it has already been solved it returns the cached value and displays a message
+## If it has not been solved, it is solved and cached and then returned 
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
